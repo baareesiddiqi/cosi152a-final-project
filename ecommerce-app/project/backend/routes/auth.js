@@ -8,7 +8,6 @@ const { protect } = require('../middleware/auth');
 const generateToken = (id) =>
   jwt.sign({ id }, process.env.JWT_SECRET, { expiresIn: '30d' });
 
-// POST /api/auth/register
 router.post(
   '/register',
   [
@@ -33,7 +32,6 @@ router.post(
   }
 );
 
-// POST /api/auth/login
 router.post(
   '/login',
   [
@@ -57,7 +55,6 @@ router.post(
   }
 );
 
-// GET /api/auth/me
 router.get('/me', protect, (req, res) => res.json(req.user));
 
 module.exports = router;

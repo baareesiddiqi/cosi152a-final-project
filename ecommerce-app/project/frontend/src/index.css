@@ -1,4 +1,3 @@
-/* ===== DESIGN TOKENS ===== */
 :root {
   --bg: #0f0f11;
   --surface: #1a1a1f;
@@ -31,11 +30,9 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* ===== LAYOUT ===== */
 .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
 .page { min-height: calc(100vh - 70px); padding: 32px 0 64px; }
 
-/* ===== TYPOGRAPHY ===== */
 h1, h2, h3, h4 { font-family: 'Sora', sans-serif; line-height: 1.2; }
 h1 { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 800; }
 h2 { font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 700; }
@@ -43,7 +40,6 @@ h3 { font-size: 1.2rem; font-weight: 600; }
 a { color: var(--accent-light); text-decoration: none; transition: opacity 0.15s; }
 a:hover { opacity: 0.85; }
 
-/* ===== BUTTONS ===== */
 .btn {
   display: inline-flex; align-items: center; gap: 8px;
   padding: 10px 20px; border-radius: var(--radius); border: none;
@@ -61,7 +57,6 @@ a:hover { opacity: 0.85; }
 .btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
 .btn-full { width: 100%; justify-content: center; }
 
-/* ===== FORMS ===== */
 .form-group { margin-bottom: 16px; }
 .form-group label { display: block; margin-bottom: 6px; font-size: 13px; font-weight: 500; color: var(--text-muted); }
 input, select, textarea {
@@ -76,13 +71,11 @@ input:focus, select:focus, textarea:focus {
 select option { background: var(--surface2); }
 textarea { resize: vertical; min-height: 90px; }
 
-/* ===== CARDS ===== */
 .card {
   background: var(--surface); border: 1px solid var(--border);
   border-radius: var(--radius-lg); padding: 24px; box-shadow: var(--shadow);
 }
 
-/* ===== BADGES ===== */
 .badge {
   display: inline-flex; align-items: center; padding: 3px 10px;
   border-radius: 20px; font-size: 12px; font-weight: 600;
@@ -92,23 +85,19 @@ textarea { resize: vertical; min-height: 90px; }
 .badge-warning { background: rgba(245,158,11,0.15); color: var(--warning); }
 .badge-accent { background: var(--accent-dim); color: var(--accent-light); }
 
-/* ===== ALERTS ===== */
 .alert { padding: 14px 18px; border-radius: var(--radius); margin-bottom: 20px; font-size: 14px; }
 .alert-error { background: rgba(239,68,68,0.12); border: 1px solid rgba(239,68,68,0.3); color: #fca5a5; }
 .alert-success { background: rgba(34,197,94,0.12); border: 1px solid rgba(34,197,94,0.3); color: #86efac; }
 .alert-info { background: var(--accent-dim); border: 1px solid rgba(124,92,252,0.3); color: var(--accent-light); }
 
-/* ===== GRID ===== */
 .product-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
   gap: 20px;
 }
 
-/* ===== RATING ===== */
 .stars { color: var(--warning); font-size: 15px; }
 
-/* ===== SPINNER ===== */
 .spinner {
   width: 40px; height: 40px;
   border: 3px solid var(--border);
@@ -119,16 +108,13 @@ textarea { resize: vertical; min-height: 90px; }
 }
 @keyframes spin { to { transform: rotate(360deg); } }
 
-/* ===== DIVIDER ===== */
 .divider { height: 1px; background: var(--border); margin: 24px 0; }
 
-/* ===== EMPTY STATE ===== */
 .empty-state {
   text-align: center; padding: 64px 24px; color: var(--text-muted);
 }
 .empty-state h3 { margin-bottom: 8px; color: var(--text); }
 
-/* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
   .container { padding: 0 16px; }
   .page { padding: 24px 0 48px; }

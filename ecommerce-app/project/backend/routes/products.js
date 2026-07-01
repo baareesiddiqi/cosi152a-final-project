@@ -4,7 +4,6 @@ const { body, validationResult } = require('express-validator');
 const Product = require('../models/Product');
 const { protect } = require('../middleware/auth');
 
-// GET /api/products  — search + category filter + pagination
 router.get('/', async (req, res) => {
   const { keyword = '', category, page = 1, limit = 8 } = req.query;
   const query = {
@@ -26,7 +25,6 @@ router.get('/', async (req, res) => {
   }
 });
 
-// GET /api/products/:id
 router.get('/:id', async (req, res) => {
   try {
     const product = await Product.findById(req.params.id).populate('seller', 'name email');
@@ -37,7 +35,6 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-// POST /api/products  — create (auth required)
 router.post(
   '/',
   protect,
@@ -61,7 +58,6 @@ router.post(
   }
 );
 
-// PUT /api/products/:id  — update (owner only)
 router.put('/:id', protect, async (req, res) => {
   try {
     const product = await Product.findById(req.params.id);
@@ -77,7 +73,6 @@ router.put('/:id', protect, async (req, res) => {
   }
 });
 
-// DELETE /api/products/:id  — delete (owner or admin)
 router.delete('/:id', protect, async (req, res) => {
   try {
     const product = await Product.findById(req.params.id);
@@ -92,7 +87,6 @@ router.delete('/:id', protect, async (req, res) => {
   }
 });
 
-// POST /api/products/:id/reviews
 router.post('/:id/reviews', protect, async (req, res) => {
   const { rating, comment } = req.body;
   try {

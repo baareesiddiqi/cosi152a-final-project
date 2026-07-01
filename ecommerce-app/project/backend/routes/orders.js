@@ -3,7 +3,6 @@ const router = express.Router();
 const Order = require('../models/Order');
 const { protect, adminOnly } = require('../middleware/auth');
 
-// POST /api/orders
 router.post('/', protect, async (req, res) => {
   const { orderItems, shippingAddress, paymentMethod, itemsPrice, shippingPrice, taxPrice, totalPrice } = req.body;
   if (!orderItems || orderItems.length === 0)
@@ -26,7 +25,6 @@ router.post('/', protect, async (req, res) => {
   }
 });
 
-// GET /api/orders/myorders
 router.get('/myorders', protect, async (req, res) => {
   try {
     const orders = await Order.find({ user: req.user._id }).sort({ createdAt: -1 });
@@ -36,7 +34,6 @@ router.get('/myorders', protect, async (req, res) => {
   }
 });
 
-// GET /api/orders/:id
 router.get('/:id', protect, async (req, res) => {
   try {
     const order = await Order.findById(req.params.id).populate('user', 'name email');
@@ -49,7 +46,6 @@ router.get('/:id', protect, async (req, res) => {
   }
 });
 
-// PUT /api/orders/:id/pay
 router.put('/:id/pay', protect, async (req, res) => {
   try {
     const order = await Order.findById(req.params.id);
@@ -69,7 +65,6 @@ router.put('/:id/pay', protect, async (req, res) => {
   }
 });
 
-// GET /api/orders  (admin only)
 router.get('/', protect, adminOnly, async (req, res) => {
   try {
     const orders = await Order.find({}).populate('user', 'name email').sort({ createdAt: -1 });

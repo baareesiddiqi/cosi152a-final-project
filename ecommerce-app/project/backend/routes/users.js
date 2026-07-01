@@ -3,7 +3,6 @@ const router = express.Router();
 const User = require('../models/User');
 const { protect } = require('../middleware/auth');
 
-// PUT /api/users/profile
 router.put('/profile', protect, async (req, res) => {
   try {
     const user = await User.findById(req.user._id);
@@ -21,7 +20,6 @@ router.put('/profile', protect, async (req, res) => {
   }
 });
 
-// GET /api/users/paypal-config
 router.get('/paypal-config', (req, res) => {
   res.json({ clientId: process.env.PAYPAL_CLIENT_ID });
 });
