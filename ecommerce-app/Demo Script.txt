@@ -1,0 +1,56 @@
+ShopWave — 4-Minute Demo Script
+
+Intro (15 sec)
+
+"Hi, I'm Baaree Siddiqi. This is ShopWave — a full-stack marketplace to buy and sell products, built with React, Express, Node, 
+and MongoDB with JWT auth and PayPal payments."
+
+
+App Demo (2 min)
+Browse + Register
+
+"Guests can search and filter by category — each query hits the backend for a MongoDB regex search with pagination. I'll register — password gets 
+hashed with bcryptjs, user saved, JWT returned and stored in React context."
+
+[Search, filter, register.]
+Sell — Create & Edit
+
+"Now I can list a product. This POST is auth-protected — the middleware verifies my JWT before saving to MongoDB 
+with my user ID as seller. From My Listings I can edit it — the backend confirms I own it before allowing the update."
+
+[Create listing, edit price.]
+Buy — Cart to Order
+
+"Adding to cart — items live in a useReducer store, no backend until checkout. I'll go straight through: add to cart, enter shipping, place the order."
+
+[Add to cart → Shipping → Place Order.]
+
+"That creates an order in MongoDB with isPaid: false. PayPal completes payment and flips it to paid. Order History tracks it all."
+
+Delete
+
+"I'll delete that test listing — full CRUD done."
+
+[Delete from My Listings.]
+
+Architecture (40 sec)
+
+"Two React context providers sit at the root: AuthContext for the user and JWT, CartContext with useReducer for cart state. 
+A single Axios instance has a request interceptor that attaches the Bearer token to every call automatically.
+The Express backend has four route files — auth, products, orders, users — all guarded by one protect middleware. 
+MongoDB has three collections: users, products, orders. Reviews are embedded inside the product document since they're 
+always read together — one query, not two."
+
+
+Technical Highlight (40 sec)
+
+"The part I'm most proud of is the auth flow working across three layers. The backend fetches the user from the 
+database on every request rather than just trusting the token payload — so a deleted user's token dies immediately. On the 
+frontend, PrivateRoute redirects unauthenticated users and remembers where they were going so they land back after login. 
+And an Axios response interceptor catches any 401 globally and clears the session. Three layers, no duplicated logic anywhere."
+
+
+Reflection (15 sec)
+
+"With more time: image uploads via Cloudinary, atomic stock decrement to prevent overselling, and an admin dashboard — the backend endpoint 
+and admin flag already exist, just no UI. Thanks."

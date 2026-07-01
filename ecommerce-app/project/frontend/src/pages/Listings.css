@@ -1,0 +1,8 @@
+.listings-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; }
+.listings-table { display: flex; flex-direction: column; gap: 12px; }
+.listing-row { display: flex; align-items: center; gap: 16px; }
+.listing-img { width: 64px; height: 64px; object-fit: cover; border-radius: 8px; flex-shrink: 0; }
+.listing-info { flex: 1; min-width: 0; }
+.listing-name { font-weight: 600; font-size: 15px; margin-bottom: 4px; }
+.listing-meta { font-size: 13px; color: var(--text-muted); }
+.listing-actions { display: flex; gap: 8px; flex-shrink: 0; }
