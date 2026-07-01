@@ -134,8 +134,8 @@ Open **http://localhost:5173**
 
 ## Demo
 
-- **Live App:** _[add your Vercel URL]_
-- **Demo Video:** _[add your video link]_
+- **Live App:** https://cosi152a-final-project.vercel.app/
+- **Demo Video:** https://drive.google.com/file/d/1MytmWB5V_aJ9DWUd070UXyNZLFKjJvi9/view?usp=sharing
 
 ## Author
 
